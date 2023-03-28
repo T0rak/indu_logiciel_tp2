@@ -47,6 +47,6 @@ jobs:
     - name: Login to registry
       run: echo ${{ secrets.PERSONAL_TOKEN }} docker login ghcr.io -u T0rak --password-stdin
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ghcr.io/T0rak/tp2:latest
+      run: docker build . --file Dockerfile --tag ghcr.io/t0rak/tp2:latest
     - name: Push the image into the registry
       run: docker push ghcr.io/T0rak/tp2:latest
