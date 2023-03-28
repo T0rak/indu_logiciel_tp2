@@ -1,3 +1,6 @@
+# Exercice 1
+## b
+```
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
@@ -37,16 +40,28 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
-  
-  build-docker-image:
+```
 
-      runs-on: ubuntu-latest
+Quelles étapes sont réalisées par cette action ?
+1. Lors d'un push ou d'une pull request, l'application va être copiée dans un container ubuntu.
+2. Les dépendances du projet vont être installées ainsi que flake8 et pytest 
+3. flake8 est lancé pour le linting du code (vérifie s'il y a des erreurs de syntaxe et s'il n'y en a pas, on vérifie la longueur des lignes et compte le nombre de problèmes repérés)
+4. Les tests sont effectués avec pytest
 
-      steps:
-        - uses: actions/checkout@v3
-        - name: Login to registry
-        run: echo ${{ secrets.PERSONAL_TOKEN }} docker login ghcr.io -u T0rak --password-stdin
-        - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ghcr.io/T0rak/tp2:latest
-        - name: Push the image into the registry
-        run: docker push ghcr.io/T0rak/tp2:latest
+
+Une étape est définie au minimum par 2 paramètres, lesquels sont-ils et à quoi servent-ils ?
+Une condition: `on` qui permet d'indiquer quelles opérations vont lancer l'action
+Une action à effectuer: `job` qui définit ce qui doit être fait
+
+
+
+La première étape contient un paramètre ‘with’, a quoi sert-il ?
+```
+uses: actions/setup-python@v3
+with:
+        python-version: "3.10"
+```
+Permet d'indiquer quelle version de python est utilisée pour dans la ligne de commande (ajout aux variables PATH). Dans ce cas, c'est la version 3.10 qui est utilisée.
+
+
+
