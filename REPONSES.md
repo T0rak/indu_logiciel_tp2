@@ -63,5 +63,5 @@ with:
 ```
 Permet d'indiquer quelle version de python est utilisée pour dans la ligne de commande (ajout aux variables PATH). Dans ce cas, c'est la version 3.10 qui est utilisée.
 
-
+DOING: voir pourquoi le build-docker-image ne marche pas
 
